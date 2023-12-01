@@ -9,7 +9,7 @@ interface IButtonWrapperProps {
   buttonText?: string;
   customTextStyle?: TextStyle;
   customContainerStyle?: ViewStyle;
-  id: string|undefined
+  id: string | undefined
 }
 
 const ButtonWrapper: React.FC<IButtonWrapperProps> = ({
@@ -40,24 +40,25 @@ const ButtonWrapper: React.FC<IButtonWrapperProps> = ({
   };
 
   return (
-    <TouchableOpacity
-      testID={id}
-      onPress={onPress}
-      style={[
-        { backgroundColor: buttonColor },
-        defaultContainerStyle,
-        customContainerStyle,
-      ]}
-    >
-      <Text
+    <>
+      <TouchableOpacity
+        testID={id}
+        onPress={onPress}
         style={[
-          defaultTextStyle,
-          customTextStyle,
-        ]}
-      >
-        {buttonText}
-      </Text>
-    </TouchableOpacity>
+          { backgroundColor: buttonColor },
+          defaultContainerStyle,
+          customContainerStyle,
+        ]}>
+        <Text
+          style={[
+            defaultTextStyle,
+            customTextStyle,
+          ]}
+        >
+          {buttonText}
+        </Text>
+      </TouchableOpacity>
+    </>
   );
 };
 

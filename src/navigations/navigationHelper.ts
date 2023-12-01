@@ -2,8 +2,7 @@ import * as React from "react";
 import {
   createNavigationContainerRef,
   StackActions,
-  TabActions,
-  NavigationContainerRef,
+  TabActions
 } from "@react-navigation/native";
 
 interface RefObject<T> {

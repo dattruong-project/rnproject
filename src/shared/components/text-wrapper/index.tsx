@@ -18,12 +18,14 @@ const TextWrapper: React.FC<ITextWrapperProps> = ({
   ...rest
 }) => {
   const theme = useTheme();
-  const textColor = color || theme.colors.text; 
+  const textColor = color || theme.colors.text;
 
   return (
-    <Text style={{ fontFamily, color: textColor, ...style }} {...rest}>
-      {children}
-    </Text>
+    <>
+      <Text style={{ fontFamily, color: textColor, ...style }} {...rest}>
+        {children}
+      </Text>
+    </>
   );
 };
 

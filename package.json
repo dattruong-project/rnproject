@@ -3,11 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
-    "ios": "react-native run-ios",
-    "dev":"NODE_ENV=development npx react-native start --reset-cache",
-    "staging":"NODE_ENV=staging npx react-native start --reset-cache",
-    "bundle": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios' --assets-dest='ios'"
+    "dev":"NODE_ENV=development",
+    "staging":"NODE_ENV=staging",
+    "ios:dev": "yarn dev react-native run-ios",
+    "ios:staging": "yarn staging react-native run-ios",
+    "start:dev":"yarn dev npx react-native start --reset-cache",
+    "start:staging":"yarn staging npx react-native start --reset-cache",
+    "bundle": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios' --assets-dest='ios'",
+    "test":"jest"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",

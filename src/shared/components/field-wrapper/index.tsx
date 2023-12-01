@@ -11,7 +11,7 @@ interface IFieldWrapperProps {
     iconSize?: number;
     iconColor?: string;
     inputTextStyle?: TextStyle;
-    inputContainerStyle? : ViewStyle;
+    inputContainerStyle?: ViewStyle;
     placeholder?: string;
     secureEntry?: boolean;
     placeholderTextColor?: string;
@@ -46,32 +46,34 @@ const FieldWrapper: React.FC<IFieldWrapperProps> = ({
     }
 
     return (
-        <View style={{ ...defaultTexContainertyle, ...inputContainerStyle }}>
-            {leadingIcon && (
-                <Icon
-                    name={leadingIcon}
-                    size={iconSize}
-                    color={iconColor || colors.text}
+        <>
+            <View style={{ ...defaultTexContainertyle, ...inputContainerStyle }}>
+                {leadingIcon && (
+                    <Icon
+                        name={leadingIcon}
+                        size={iconSize}
+                        color={iconColor || colors.text}
+                    />
+                )}
+                <TextInput
+                    secureTextEntry={secureEntry}
+                    placeholder={placeholder}
+                    placeholderTextColor={placeholderTextColor ?? colors.text}
+                    style={{
+                        ...defaultTextStyle,
+                        ...inputTextStyle
+                    }}
+                    {...rest}
                 />
-            )}
-            <TextInput
-                secureTextEntry={secureEntry}
-                placeholder={placeholder}
-                placeholderTextColor={placeholderTextColor ?? colors.text}
-                style={{
-                    ...defaultTextStyle,
-                    ...inputTextStyle
-                }}
-                {...rest}
-            />
-            {trailingIcon && (
-                <Icon
-                    name={trailingIcon}
-                    size={iconSize}
-                    color={iconColor || colors.text}
-                />
-            )}
-        </View>
+                {trailingIcon && (
+                    <Icon
+                        name={trailingIcon}
+                        size={iconSize}
+                        color={iconColor || colors.text}
+                    />
+                )}
+            </View>
+        </>
     );
 };
 

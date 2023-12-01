@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import AsyncStorageHelper, { AsyncStorageKey } from "../shared/storage/asyncStorageHelper";
 import { AuthorizeResult } from "react-native-app-auth";
-import { Alert } from "react-native";
 import { API_BASE } from "@env";
 
 interface GraphQLResponse<T> {
@@ -48,7 +47,7 @@ const axiosGraphQL = async <T>(
     if (axios.isAxiosError(error)) {
       console.log(error.code);
       if (error.code === 'ERR_NETWORK') {
-        Alert.alert("Network Error");
+       console.log("network error");
       }
       return { errors: error };
     }

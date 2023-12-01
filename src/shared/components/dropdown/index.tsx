@@ -10,7 +10,11 @@ const LanguageDropdown = () => {
       { label: "English", value: AppLanguage.en},
       { label: "Viet Nam", value: AppLanguage.vi},
     ];
-    const handleLanguageChange = (value: AppLanguage) => switchLanguage(value);
+    const handleLanguageChange = (value: AppLanguage) => {
+      if (value) {
+        switchLanguage(value);
+      }
+    };
 
     return <>
       <RNPickerSelect onValueChange={handleLanguageChange}

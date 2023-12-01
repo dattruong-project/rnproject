@@ -1,8 +1,9 @@
+import { AUTH_CLIENT_ID, AUTH_ISSUER, AUTH_RIDIRECT_OKTA } from "@env";
 import { AuthConfiguration } from "react-native-app-auth";
 
 export const config: AuthConfiguration = {
-  clientId: '0oa9i0cawrT7eheUz697',
-  redirectUrl: 'com.okta.trial-5793302:/callback',
-  issuer: 'https://trial-5793302.okta.com/oauth2/default',
+  clientId: AUTH_CLIENT_ID,
+  redirectUrl: AUTH_RIDIRECT_OKTA,
+  issuer: AUTH_ISSUER,
   scopes: ['openid', 'profile', 'offline_access'],
 };

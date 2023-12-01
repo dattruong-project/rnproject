@@ -1,6 +1,7 @@
 import AsyncStorageHelper, { AsyncStorageKey } from "../../shared/storage/asyncStorageHelper";
 import { AuthorizeResult, EndSessionResult, authorize, logout } from "react-native-app-auth";
 import { config } from "../../../auth.config";
+import { AUTH_POST_LOG_OUT } from "@env";
 
 const LoginService = () => {
     const asyncStorage = AsyncStorageHelper.getInstance();
@@ -18,10 +19,9 @@ const LoginService = () => {
     const logOutSSO = async () => {
         try {
             const credentials = await asyncStorage.getItem<AuthorizeResult>(AsyncStorageKey.credentials);
-
             const logoutResult: EndSessionResult = await logout(config, {
                 idToken: credentials!.idToken,
-                postLogoutRedirectUrl: "com.okta.trial-5793302:/"
+                postLogoutRedirectUrl: AUTH_POST_LOG_OUT
             });
             if (logoutResult) {
                 asyncStorage.removeItem(AsyncStorageKey.credentials);
